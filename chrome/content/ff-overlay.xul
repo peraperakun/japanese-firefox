@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+
+	Perapera Japanese
+	Copyright (C) 2005-2011 Jonathan Zarate
+	http://www.polarcloud.com/
+
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+
+	Please do not change or remove any of the copyrights or links to web pages
+	when modifying any of the files. - Jon
+
+-->
+<?xml-stylesheet href="chrome://jperapera/skin/jperapera.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://jperapera/locale/jperapera.dtd">
+
+<overlay id="jperapera" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/javascript;version=1.7" src="config.js" />
+<script type="application/javascript;version=1.7" src="jperapera.js" />
+<script type="application/javascript;version=1.7" src="jdata.js" />
+
+<commandset id="mainCommandSet">
+	<command id="jperapera-toggle-cmd" oncommand="ppjMain.toggle()"/>
+	<command id="jperapera-copy-cmd" oncommand="ppjMain.copyToClip()"/>
+	<command id="jperapera-options-cmd" oncommand="ppjMain.configPage()"/>
+	<command id="jperapera-jkotobabar-toggle-cmd" oncommand="toggleSidebar('viewJKotobaSidebar')"/>
+</commandset>
+
+<popup id="contentAreaContextMenu">
+	<menuseparator id="jperapera-separator-cm" hidden="true"/>
+	<menuitem id="jperapera-toggle-cm" label="&jperapera.toggle.cm;"
+		accesskey="&jperapera.toggle.cm.key;" key="jperapera-toggle-key" command="jperapera-toggle-cmd" type="checkbox" hidden="true"/>
+	<menuitem id="jperapera-copy-cm" label="&jperapera.copy.cm;"
+		accesskey="&jperapera.copy.cm.key;" key="jperapera-copy-key" command="jperapera-copy-cmd" hidden="true"/>
+</popup>
+
+<menupopup id="menu_ToolsPopup">
+	<menuseparator id="jperapera-separator-tm" hidden="true"
+		insertbefore="devToolsSeparator"/>
+	<menuitem id="jperapera-toggle-tm" label="&jperapera.toggle.tm;" accesskey="&jperapera.toggle.tm.key;"
+		key="jperapera-toggle-key" command="jperapera-toggle-cmd" type="checkbox" hidden="true" insertbefore="devToolsSeparator"/>
+	<menuitem id="jperapera-copy-tm" label="&jperapera.copy.tm;" accesskey="&jperapera.copy.tm.key;"
+		key="jperapera-copy-key" command="jperapera-copy-cmd" hidden="true" insertbefore="devToolsSeparator"/>
+</menupopup>
+
+<toolbarpalette id="BrowserToolbarPalette">
+	<toolbarbutton id="jperapera-toggle-button" 
+		class="toolbarbutton-1"
+		label="&jperapera.toolbar.toggle;" 
+		type="menu-button" 
+		tooltiptext="&jperapera.toolbar.toggle.tip;"
+		command="jperapera-toggle-cmd" >
+		<menupopup>
+	       	<menuitem
+	       		id="jperapera-context-jkotobabar"
+	       		command="jperapera-jkotobabar-toggle-cmd"
+	       		label="&jperapera.jkotobabar.showhide;" />
+	        <menuseparator />
+			<menuitem 
+				label="&jperapera.toolbar.options;" 
+				command="jperapera-options-cmd"/>
+	    </menupopup>
+   </toolbarbutton>
+</toolbarpalette>
+
+<statusbar id="status-bar" class="chromeclass-status">
+	<statusbarpanel id="jperapera-status-text" hidden="true" label="" context="" onclick="this.hidden=true;"/>
+	<statusbarpanel id="jperapera-status" class="statusbarpanel-iconic" tooltiptext="&jperapera.toolbar.toggle.tip;"
+		contextmenu="jperapera-status-menu" onclick="ppjMain.statusClick(event)"/>
+	<popupset>
+		<menupopup id="jperapera-status-menu">
+			<menuitem label="&jperapera.toolbar.toggle;" command="jperapera-toggle-cmd" type="checkbox" default="true"/>
+			<menuitem label="&jperapera.toolbar.lbar;" command="jperapera-lbar-cmd"/>
+			<menuitem label="&jperapera.toolbar.options;" command="jperapera-options-cmd"/>
+		</menupopup>
+	</popupset>
+</statusbar>
+
+</overlay>

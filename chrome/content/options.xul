@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+	Perapera Chinese
+	Copyright (C) 2005-2011 Jonathan Zarate
+	http://www.polarcloud.com/
+
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+
+	Please do not change or remove any of the copyrights or links to web pages
+	when modifying any of the files. - Jon
+
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://jperapera/locale/options.dtd">
+
+<dialog title="&Title;"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		buttons="accept,cancel"
+		ondialogaccept="return ppjOptions.onOK();"
+		ondialogcancel="return true;"
+		onload="ppjOptions.onLoad();">
+
+<script type="application/javascript;version=1.7" src="config.js"/>
+<script type="application/javascript;version=1.7" src="options.js"/>
+
+<commandset>
+	<command id="jperapera-theme-changed-cmd" oncommand="ppjOptions.resetColors()"/>
+</commandset>
+
+<tabbox id="jcp-tabbox">
+<tabs>
+	<tab label="&Tab.General;"/>
+	<tab label="&Tab.Popup;"/>
+	<tab label="&Tab.Keyboard;"/>
+	<tab label="&Tab.Dictionaries;"/>
+	<tab label="&Tab.KanjiDict;"/>
+	<tab label="&Tab.About;"/>
+</tabs>
+<tabpanels>
+
+	<tabpanel><!-- General-->
+	<vbox flex="0.5">
+		<groupbox>
+		<caption label="&General.Icon;" />
+				<radiogroup id="jcp-flag">
+				<radio label="&General.Icon.Classic;" value="pera" src="chrome://jperapera/skin/star.png"/>
+				<radio label="&General.Icon.Japan;" value="japan" src="chrome://jperapera/skin/japanese_on.png"/>
+				</radiogroup>
+				<label value="&NoteRestartBrowser;"/>
+		</groupbox>
+		<hbox>
+			<label value="&General.EnableMode;" control="jcp-enmode"/>
+			<menulist id="jcp-enmode">
+				<menupopup>
+				<menuitem label="&General.CurrentTabOnly;" value="0"/>
+				<menuitem label="&General.CurrentBrowserOnly;" value="1"/>
+				<menuitem label="&General.AllBrowsers;" value="2"/>
+				<menuitem label="&General.AlwaysEnableAtStartup;" value="3"/>
+				</menupopup>
+			</menulist>
+		</hbox>
+		<checkbox label="&General.HighlightText;" id="jcp-highlight"/>
+		<checkbox label="&General.TranAltTitle;" id="jcp-title"/>
+		<checkbox label="&General.SelectedInLookupBar;" id="jcp-selinlb"/>
+		<checkbox label="&General.BottomLookupBar;" id="jcp-bottomlb" hidden="true" />
+		<checkbox label="&General.EnlargeSmallDocuments;" id="jcp-resizedoc"/>
+		<checkbox label="&General.ShowIconInStatusbar;" hidden="true" id="jcp-sticon"/>
+	</vbox>
+	</tabpanel>
+	
+	<tabpanel><!-- Popup-->
+	<vbox flex="1">
+	<hbox>
+		<grid>
+			<columns><column/><column/></columns>
+			<rows>
+				<row>
+				<label value="&Popup.Theme;" control="jcp-css"/>
+					<menulist id="jcp-css" command="jperapera-theme-changed-cmd">
+						<menupopup>
+						<menuitem label="&Popup.Charcoal;" value="charcoal"/>
+						<menuitem label="&Popup.Paper;" value="paper"/>
+						<menuitem label="&Popup.Sepia;" value="sepia"/>
+						</menupopup>
+					</menulist>
+				</row>
+				<row>
+				<label value="&Popup.Kana;"/>
+					<menulist id="jcp-yomigana">
+					<menupopup>
+						<menuitem label="&Popup.Hiragana;" value="hiragana"/>
+						<menuitem label="&Popup.Katakana;" value="katakana"/>
+						<menuitem label="&Popup.Romaji;" value="romaji"/>
+					</menupopup>
+					</menulist>
+				</row>
+				<row>
+					<label value="&Popup.MaxEntries;" control="jcp-wmax"/>
+					<textbox id="jcp-wmax" maxlength="5" size="5"/>
+				</row>
+				<checkbox label="&Popup.HideDefinitions;" id="jcp-hidedef"/>
+				<checkbox label="&Popup.HideX;" id="jcp-hidex"/>
+				<checkbox label="&Popup.ShowWordType;" id="jcp-wpos"/>
+				<checkbox label="&Popup.ShowPopular;" id="jcp-wpop"/>
+			</rows>
+		</grid>
+		</hbox>
+			<groupbox>
+				<caption label="&Popup.Colors;" />
+				<grid>
+					<columns><column/><column/></columns>
+					<rows>
+						<row>
+							<label value="&Popup.KanjiColor;" />
+							<colorpicker type="button" id="jcp-ckanji"/>
+						</row>
+						<row>
+							<label value="&Popup.YomiColor;" />
+							<colorpicker type="button" id="jcp-cyomi"/>
+						</row>
+					</rows>
+				</grid>
+				<spacer height="10"/>
+				<button label="&Popup.ResetColors;" oncommand="ppjOptions.resetColors()" style="max-width: 150px;"/>
+			</groupbox>
+		</vbox>
+	</tabpanel>
+
+	<tabpanel><!-- Keyboard -->
+		<vbox>
+			<grid>
+				<columns><column/><column/><column/><column/><column/></columns>
+				<rows>
+					<row>
+						<label value="&Keyboard.Toggle;"/>
+						<checkbox label="&Keyboard.Ctrl;" id="jcp-toggle-accel"/>
+						<checkbox label="&Keyboard.Alt;" id="jcp-toggle-alt"/>
+						<checkbox label="&Keyboard.Shift;" id="jcp-toggle-shift"/>
+						<menulist id="jcp-toggle-key" editable="true" oninput="ppjOptions.keyChanged(this)" oncommand="ppjOptions.keyChanged(this)">
+							<menupopup id="jcp-toggle-list"/>
+						</menulist>
+					</row>
+					<!--
+					<row>
+						<label value="&Keyboard.LookupBar;"/>
+						<checkbox label="&Keyboard.Ctrl;" id="jcp-lbar-accel"/>
+						<checkbox label="&Keyboard.Alt;" id="jcp-lbar-alt"/>
+						<checkbox label="&Keyboard.Shift;" id="jcp-lbar-shift"/>
+						<menulist id="jcp-lbar-key" editable="true" oninput="ppjOptions.keyChanged(this)" oncommand="ppjOptions.keyChanged(this)">
+							<menupopup id="jcp-lbar-list"/>
+						</menulist>
+					</row>
+					-->
+				</rows>
+			</grid>
+
+			<description value="&NoteRestartBrowser;"/>
+
+			<spacer style="height:2em"/>
+
+			<groupbox>
+				<caption label="&Keyboard.KeysWhenVisible;"/>
+				<grid>
+					<columns><column/><column/></columns>
+					<rows>
+						<row>
+							<description value="&Keyboard.AlternateView;"/>
+							<description value="A"/>
+						</row>
+						<row>
+							<description value="&Keyboard.StickyPopup;"/>
+							<description value="K"/>
+						</row>
+						<row>
+							<description value="&Keyboard.MovePopupDown;"/>
+							<description value="Y"/>
+						</row>
+						<row>
+							<description value="&Keyboard.CopyToClipboard;"/>
+							<description value="C"/>
+						</row>
+						<row>
+							<description value="&Keyboard.ShowHideWordlist;"/>
+							<description value="W"/>
+						</row>
+						<row>
+							<description value="&Keyboard.SaveToWordlist;"/>
+							<description value="S"/>
+						</row>
+						<row>
+							<description value="&Keyboard.HideShowDefinitions;"/>
+							<description value="D"/>
+						</row>
+						<row>
+							<description value="&Keyboard.SwitchDictionary;"/>
+							<description value="SHIFT, ENTER, 1-9"/>
+						</row>
+						<row>
+							<description value="&Keyboard.PreviousCharacter;"/>
+							<description value="B"/>
+						</row>
+						<row>
+							<description value="&Keyboard.NextCharacter;"/>
+							<description value="M"/>
+						</row>
+						<row>
+							<description value="&Keyboard.NextWord;"/>
+							<description value="N"/>
+						</row>
+					</rows>
+				</grid>
+				<spacer style="height:1em"/>
+				<checkbox label="&Keyboard.DisableTheseKeys;" id="jcp-nopopkeys"/>
+			</groupbox>
+		</vbox>
+	</tabpanel>
+
+	<tabpanel><!-- Dictionaries -->
+		<vbox flex="1">
+		<groupbox flex="1">
+			<caption label="&Dictionaries.Priority;"/>
+			<hbox flex="1">
+				<listbox id="jcp-priority" flex="1" />
+				<vbox>
+					<button label="&#8593;" oncommand="ppjOptions.movePriority(-1)"/>
+					<button label="&#8595;" oncommand="ppjOptions.movePriority(1)"/>
+					<spacer style="height:2em"/>
+					<button label="&Dictionaries.Download;" oncommand="ppjOptions.Download()"/>
+				</vbox>
+			</hbox>
+		</groupbox>
+		</vbox>
+	</tabpanel>
+	<tabpanel><!-- Kanji Dictionary -->
+		<vbox>
+			<groupbox>
+				<caption label="&Kanji.DisplayedInformation;"/>
+				<hbox>
+					<vbox>
+						<checkbox id="jcp-kindex-COMP" label="Kanji Components"/>
+						<checkbox id="jcp-kindex-H" label="Halpern"/>
+						<checkbox id="jcp-kindex-L" label="Heisig"/>
+						<checkbox id="jcp-kindex-E" label="Henshall"/>
+						<checkbox id="jcp-kindex-DK" label="Kanji Learners Dictionary"/>
+						<checkbox id="jcp-kindex-N" label="Nelson"/>
+					</vbox>
+					<vbox>
+						<checkbox id="jcp-kindex-V" label="New Nelson"/>
+						<checkbox id="jcp-kindex-Y" label="PinYin"/>
+						<checkbox id="jcp-kindex-P" label="Skip Pattern"/>
+						<checkbox id="jcp-kindex-IN" label="Tuttle Kanji &amp; Kana"/>
+						<checkbox id="jcp-kindex-I" label="Tuttle Kanji Dictionary"/>
+						<checkbox id="jcp-kindex-U" label="Unicode"/>
+					</vbox>
+				</hbox>
+			</groupbox>
+			<box flex="1"/>
+		</vbox>
+	</tabpanel>
+	<tabpanel><!-- About -->
+		<vbox flex="0">
+		<hbox pack="center">
+			<label style="color:#3366FF;font-size:20px;" value="&About.Header;"/>
+		</hbox>
+		<separator height="40"/>
+		<description style="max-width: 450px;">&About.Body;</description>
+		<separator height="60"/>
+				<hbox pack="center" align="center">
+			<!--<image src="chrome://jperapera/skin/peralink.png" style="border-style:solid;border-color:#666666;border-width:1px;border-radius:5px 5px 5px 5px;padding-bottom:3px;padding-left:3px;padding-right:4px;padding-top:6px;background-color:#FFFFFF;" onclick="peraPrefs.donate();"/>-->
+			<image src="chrome://jperapera/skin/twitter.png" onclick="ppjOptions.gotoLink(2);"/>
+			<separator width="20"/>
+			<image src="chrome://jperapera/skin/peralink.png" onclick="ppjOptions.gotoLink(1);"/>
+			<separator width="20"/>
+			<image src="chrome://jperapera/skin/facebook.png" onclick="ppjOptions.gotoLink(3);"/>
+		</hbox>
+		<separator height="70"/>
+		<hbox pack="center">
+			<label value="&About.Footer;"/>
+		</hbox>
+		<separator />
+		<hbox pack="center">
+			<image src="chrome://jperapera/skin/donate.png" style="border-color:#666666;border-width:1px;border-style:solid;" onclick="ppjOptions.gotoLink(4);"/>
+		</hbox>
+		</vbox>
+	</tabpanel>
+</tabpanels>
+</tabbox>
+</dialog>

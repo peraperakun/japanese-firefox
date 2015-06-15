@@ -1,0 +1,89 @@
+
+#jperapera-lbar-close {
+	list-style-image: url("chrome://jperapera/skin/smile.png");
+}
+
+#jperapera-lbar-close:hover {
+	list-style-image: url("chrome://jperapera/skin/smile_close.png");
+}
+
+#jperapera-lbar-close.waiting {
+	list-style-image: url("chrome://jperapera/skin/smile_wait.png");
+}
+
+#jperapera-lbar-search {
+	list-style-image: url("chrome://jperapera/skin/search.png");
+}
+
+#jperapera-lbar-copy {
+	list-style-image: url("chrome://jperapera/skin/copy.png");
+}	
+
+#jperapera-lbar-save {
+	list-style-image: url("chrome://jperapera/skin/save.png");
+}
+
+#pc-china-icn {
+	list-style-image: url("chrome://jperapera/skin/chinese_on.png");
+}
+
+#jperapera-lbar-config {
+	list-style-image: url("chrome://jperapera/skin/config.png");
+}
+
+#jperapera-toggle-button {
+	list-style-image: url("chrome://jperapera/skin/star_off.png");
+}
+#jperapera-toggle-button[flag=pera] {
+	list-style-image: url("chrome://jperapera/skin/star_off.png");
+}
+#jperapera-toggle-button[rc_enabled=true][flag=pera]{
+	list-style-image: url("chrome://jperapera/skin/star.png");
+}
+#jperapera-toggle-button[flag=japan] {
+	list-style-image: url("chrome://jperapera/skin/japanese_off.png");
+}
+#jperapera-toggle-button[rc_enabled=true][flag=japan] {
+	list-style-image: url("chrome://jperapera/skin/japanese_on.png");
+}
+#jperapera-lbar-button {
+	list-style-image: url("chrome://jperapera/skin/smile_lbar.png");
+}
+
+#jperapera-toggle-button-gs {
+	list-style-image: url("chrome://jperapera/skin/smile_gs.png");
+}
+#jperapera-toggle-button-gs[checked=true] {
+	list-style-image: url("chrome://jperapera/skin/smile_star_gs.png");
+}
+#jperapera-lbar-button-gs {
+	list-style-image: url("chrome://jperapera/skin/smile_lbar_gs.png");
+}
+
+#jperapera-status {
+	list-style-image: url("chrome://jperapera/skin/smile_grey.png");
+}
+#jperapera-status[rc_enabled=true] {
+	list-style-image: url("chrome://jperapera/skin/smile_star.png");
+}
+
+#ppc-lookupbar-text {
+	min-width: 150px;
+}
+
+#ppc-lookupbox-text {
+	min-width: 65px;
+}
+
+#ppc-lookupbox-grip,
+#ppc-lookupbar-grip {
+	background-image: url("chrome://jperapera/skin/gripper.png");
+	min-height: 22px;
+	min-width: 3px;
+}
+
+#ppc-lookupbox-split,
+#ppc-lookupbar-split {
+	background: transparent;
+	border: none !important;
+}

@@ -1,0 +1,21 @@
+<!ENTITY jperapera.jkotobabar.title "Perapera Japanese Wordlist">
+
+<!ENTITY jperapera.jkotobabar.header.word "Word">
+<!ENTITY jperapera.jkotobabar.header.reading "Reading">
+<!ENTITY jperapera.jkotobabar.header.meaning "Meaning">
+
+<!ENTITY jperapera.jkotobabar.select "Select">
+<!ENTITY jperapera.jkotobabar.select.all "All">
+<!ENTITY jperapera.jkotobabar.select.none "None">
+
+<!ENTITY jperapera.jkotobabar.entries "Entries...">
+<!ENTITY jperapera.jkotobabar.entries.copy "Copy">
+<!ENTITY jperapera.jkotobabar.entries.export "Export">
+<!ENTITY jperapera.jkotobabar.entries.delete "Delete">
+<!ENTITY jperapera.jkotobabar.entries.grab "Grab Entries!">
+
+<!ENTITY jperapera.jkotobabar.dontshow "Don't show this dialog next time">
+<!ENTITY jperapera.jkotobabar.deletewarning "Are you sure you want to delete the selected entries (this can't be undone)?">
+
+<!ENTITY jperapera.jkotobabar.commandkey "E">
+<!ENTITY jperapera.jkotobabar.modifierskey "shift accel">

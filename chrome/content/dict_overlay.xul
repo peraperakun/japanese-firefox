@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/javascript">
+<![CDATA[
+/*
+	Copyright 2010 Jonathan Zarate
+	http://www.polarcloud.com/rikaichan
+*/
+if (typeof(ppjDicList) == "undefined") ppjDicList = {};
+ppjDicList["peraperakun@gmail.com"] = {
+	name: "Japanese-English",
+	version: "2.20130127",
+	id: "peraperakun@gmail.com",
+	hasType: true,
+	isName: false
+	
+	// custom open, close, findWord, findText can be definied here
+};
+
+ppjDicList["peraperakun-names@gmail.com"] = {
+	name: "Japanese Names",
+	version: "2.20130127",
+	id: "peraperakun-names@gmail.com",
+	hasType: true,
+	isName: false
+	
+	// custom open, close, findWord, findText can be definied here
+};
+]]>
+</script>
+</overlay>

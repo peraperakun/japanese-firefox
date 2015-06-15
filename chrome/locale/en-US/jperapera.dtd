@@ -1,0 +1,32 @@
+﻿
+<!ENTITY jperapera.toggle.cm "Perapera Japanese">
+<!ENTITY jperapera.toggle.cm.key "K">
+
+<!ENTITY jperapera.toggle.tm "Perapera Japanese">
+<!ENTITY jperapera.toggle.tm.key "K">
+
+<!ENTITY jperapera.lbar.cm "Perapera Japanese Lookupbar">
+<!ENTITY jperapera.lbar.cm.key "L">
+
+<!ENTITY jperapera.lbar.tm "Perapera Japanese Lookupbar">
+<!ENTITY jperapera.lbar.tm.key "L">
+
+<!ENTITY jperapera.copy.cm "Perapera Japanese Copy">
+<!ENTITY jperapera.copy.cm.key "C">
+
+<!ENTITY jperapera.copy.tm "Perapera Japanese Copy">
+<!ENTITY jperapera.copy.tm.key "C">
+
+<!ENTITY jperapera.lbar.close.tip "Close Lookupbar">
+<!ENTITY jperapera.lbar.search.tip "Search / Again">
+<!ENTITY jperapera.lbar.copy.tip "Copy Result">
+<!ENTITY jperapera.lbar.save.tip "Save Result">
+<!ENTITY jperapera.lbar.config.tip "Configure">
+
+<!ENTITY jperapera.toolbar.toggle "Perapera Japanese">
+<!ENTITY jperapera.toolbar.toggle.tip "Perapera Japanese">
+<!ENTITY jperapera.toolbar.lbar "Lookupbar">
+<!ENTITY jperapera.toolbar.lbar.tip "Perapera Japanese Lookupbar">
+<!ENTITY jperapera.toolbar.options "Options...">
+
+<!ENTITY jperapera.jkotobabar.showhide "Show/Hide Wordlist">

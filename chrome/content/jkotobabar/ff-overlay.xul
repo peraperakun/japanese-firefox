@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://jperapera/locale/jkotobabar.dtd">
+<overlay id="jkotobasidebarOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  
+  <!-- <keyset id="mainKeyset">
+		<key id="key_openKotobaSidebar" command="viewJKotobaSidebar"
+			key="&jperapera.jkotobabar.commandkey;"
+			modifiers="&jperapera.jkotobabar.modifierskey;" />
+  </keyset>
+ 
+  <menupopup id="viewSidebarMenu">
+  	<menuitem key="key_openKotobaSidebar" observes="viewJKotobaSidebar"  />
+  </menupopup>
+ --> 
+	<broadcasterset id="mainBroadcasterSet">
+		<broadcaster id="viewJKotobaSidebar"
+					label="&jperapera.jkotobabar.title;"
+					autoCheck="false"
+					type="checkbox"
+					group="sidebar"
+					sidebarurl="chrome://jperapera/content/jkotobabar/jkotobabar.xul"
+					sidebartitle="&jperapera.jkotobabar.title;"
+					oncommand="toggleSidebar('viewJKotobaSidebar');" />
+	</broadcasterset>
+  
+</overlay>
